@@ -14,7 +14,7 @@ import static java.lang.System.out;
     See Wikipedia: Combinations
  */
 public class Ex1SplitInteger {
-
+    Random rand = new Random();
     public static void main(String[] args) {
         new Ex1SplitInteger().program();
     }
@@ -22,6 +22,9 @@ public class Ex1SplitInteger {
     private void program() {
         final int n = 7;     // The number to split, could vary, try 146
         final int b = 4;     // How many parts to split into, could vary, try 17
+        for (int i = 0; i < 20; i++) {
+            splitInteger(7,4);
+        }
         /*
         for (int i = 0; i < 10; i++) {
             int[] split = splitInt(n, b);
@@ -43,4 +46,17 @@ public class Ex1SplitInteger {
     // ----------- Methods here ---------------------------------------
 
 
+    private void splitInteger (int value, int times) {
+        int[] arr = new int[times];
+        int count = 0;
+        do  {
+            for (int i =0; i < arr.length;i++) {
+                arr[i] = rand.nextInt(value+1);
+            }
+            count ++;
+        } while (sum(arr) != value);
+        out.println(count);
+        out.println(Arrays.toString(arr));
+
+    }
 }

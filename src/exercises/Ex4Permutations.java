@@ -10,16 +10,16 @@ import static java.lang.System.out;
    See https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm
  */
 public class Ex4Permutations {
-
+    Random rand = new Random();
     public static void main(String[] args) {
         new Ex4Permutations().program();
     }
 
     void program() {
-        // Imperative permutation
-        // List<String> perms = permutationSJT("12345");
-        // out.println(perms.size() == 120);
-        // out.println(sampleCheck(perms));
+//         Imperative permutation
+         List<String> perms = permutationSJT("12345");
+         out.println(perms.size() == 120);
+         out.println(sampleCheck(perms));
     }
 
     // Some sampling to check there's only one of each (should only be one)
@@ -33,6 +33,9 @@ public class Ex4Permutations {
 
     // -------------- Methods  ------------------------
 
-
-
+    List<String> permutationSJT(String expr){
+        List<String> uniques = new ArrayList<>();
+        String current = expr;
+        while (uniques.contains(current) && )
+    }
 }

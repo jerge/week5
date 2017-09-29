@@ -3,6 +3,7 @@ package exercises;
 import java.util.*;
 import java.util.List;
 
+import static java.lang.System.err;
 import static java.lang.System.out;
 
 /**
@@ -22,23 +23,26 @@ public class Ex3Grouping {
         List<Position> ps = generatePositions();
         out.println(ps);
 
-        // Method will group all Points into list depending on row values
-        // I.e. all Points with row = 2 in same list, etc.
-        // Row is the key and the list containing all pair with row =2 is the value
-        /*Map<Integer, List<Position>> rowPositions = groupByRowValue(ps);
+        // Method will group all Positions into list depending on row values
+        // I.e. all Positions with row = 2 in same list, etc.
+        // Row is the key and the list containing all pair with row = 2 is the value
+        Map<Integer, List<Position>> rowPositions = groupByRowValue(ps);
 
         // Checking
         boolean b = true;
         for( Position p : rowPositions.get(0)){  // Get all with row 0
             b = b && (p.row == 0);   // Testing
         }
+
+//        out.println(rowPositions);
+
         out.println(b);
         b = true;
-        for( Position p : rowPositions.get(2)){ // Get all with row 4
+        for( Position p : rowPositions.get(2)){ // Get all with row 2
             b = b && (p.row == 2);
         }
         out.println(b);
-        */
+
     }
 
     class Position {
@@ -50,7 +54,30 @@ public class Ex3Grouping {
     }
 
     // -------- Methods --------------------
+    Map<Integer, List<Position>> groupByRowValue(List<Position> list){
+        List<Integer> usedKeys = new ArrayList<>();
+        Map<Integer, List<Position>> karta = new HashMap<>();
+        for (int base = 0; base < list.size(); base++) {
+            if(usedKeys.contains(list.get(base).row)) {
+                continue;
+            }
+            List<Position> currentKey = new ArrayList<>();
+            currentKey.add(list.get(base));
+            for (int top = base+1; top < list.size(); top++) {
+                if (list.get(base).row == list.get(top).row && list.get(base) != list.get(top)) {
+                    currentKey.add(list.get(top));
+                }
+            }
+            out.println(currentKey);
+            karta.put(list.get(base).row,currentKey);
+            usedKeys.add(list.get(base).row);
+        }
+        return karta;
+    }
 
+    private boolean isUsed(Position key, List<Integer> list) {
+        return list.contains(key.row);
+    }
 
 
 
