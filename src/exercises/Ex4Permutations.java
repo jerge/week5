@@ -17,9 +17,9 @@ public class Ex4Permutations {
 
     void program() {
 //         Imperative permutation
-         List<String> perms = permutationSJT("12345");
-         out.println(perms.size() == 120);
-         out.println(sampleCheck(perms));
+//         List<String> perms = permutationSJT("12345");
+//         out.println(perms.size() == 120);
+//         out.println(sampleCheck(perms));
     }
 
     // Some sampling to check there's only one of each (should only be one)
@@ -32,10 +32,5 @@ public class Ex4Permutations {
     }
 
     // -------------- Methods  ------------------------
-
-    List<String> permutationSJT(String expr){
-        List<String> uniques = new ArrayList<>();
-        String current = expr;
-        while (uniques.contains(current) && )
-    }
+    
 }
