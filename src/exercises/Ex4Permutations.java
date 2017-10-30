@@ -32,5 +32,5 @@ public class Ex4Permutations {
     }
 
     // -------------- Methods  ------------------------
-    
+
 }
